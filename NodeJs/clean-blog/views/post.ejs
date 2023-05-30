@@ -30,6 +30,21 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <p><%= post.post %></p>
+          <div  class="text-center ">
+            <a 
+            class="btn bg-primary rounded text-white p-2 mr-3" 
+            href="/post/edit/<%= post._id %>"
+            >
+              Update
+            </a>
+            <a  
+            class="btn bg-danger rounded text-white p-2" 
+            href="/post/<%= post._id %>?_method=DELETE"
+            onclick="return confirm('Are you sure?')"
+            >
+              Delete
+            </a>
+          </div>
         </div>
       </div>
     </div>
