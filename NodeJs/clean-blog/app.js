@@ -9,16 +9,26 @@ const ejs = require("ejs");
 const postController = require("./controllers/postControllers.js");
 const pageController = require("./controllers/pageControllers.js");
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
 // Connect DB
 
-mongoose.connect("mongodb://127.0.0.1/clean-blog-db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(
+    "mongodb+srv://halilkocoglu98:hCUHhyONJo20BK8y@cluster0.yye6efj.mongodb.net/clean-blog?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    console.log("DB connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //Template Engine
 app.set("view engine", "ejs");
