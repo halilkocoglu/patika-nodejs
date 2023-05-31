@@ -16,13 +16,10 @@ const app = express();
 // Connect DB
 
 mongoose
-  .connect(
-    "mongodb+srv://halilkocoglu98:hCUHhyONJo20BK8y@cluster0.yye6efj.mongodb.net/clean-blog?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect("mongodb://127.0.0.1/clean-blog-db", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("DB connected");
   })
